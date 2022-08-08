@@ -1,0 +1,25 @@
+h1, label {
+    color: rgb(131, 241, 131) 
+ }
+ 
+ body{
+     text-align: center !important;
+     background-color:rgb(46, 48, 48)
+ }
+ 
+ button{
+     color: rgb(255, 255, 255);
+     background-color:rgb(165, 250, 125);
+     font-size: 50px;
+     width: 20%; 
+     height: 75px;
+ }
+ 
+ /* input{
+     color: rgb(255, 255, 255);
+     background-color:rgb(165, 250, 125);
+     font-size: 25px;
+     width: 10%; 
+     height: 45px;
+ } */
+ 

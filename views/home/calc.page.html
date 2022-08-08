@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="home/style.css" />
+    <script>
+      function calc(a, b) {
+        // console.log(document.getElementsByName('selected_op'));
+        console.log("start");
+        var radios = document.getElementsByName("selected_op");
+        for (let i = 0; i < radios.length; i++) {
+          if (radios[i].checked) {
+            let Url = `http://localhost:3000/api/${radios[i].value}?fnumber=${a}&snumber=${b}`;
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", Url);
+            xhr.onload = () => {
+              document.getElementById("result").innerHTML = xhr.response;
+            };
+            xhr.send();
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>الحاسبة</h1>
+
+    <label for="snumber">الرقم الاول</label><br />
+    <input type="text" id="fnumber" name="fnumber" /><br />
+    <label for="snumber">الرقم الثاني</label><br />
+    <input type="text" id="snumber" name="snumber" /><br /><br />
+
+    <h1>الرجاء اختيار العملية الحسابية</h1>
+    <input type="radio" id="+" name="selected_op" value="add" />
+    <label for="+">الجمع</label><br />
+    <input type="radio" id="-" name="selected_op" value="sub" />
+    <label for="-">الطرح</label><br />
+    <input type="radio" id="*" name="selected_op" value="mul" />
+    <label for="*">الضرب</label><br />
+    <input type="radio" id="div" name="selected_op" value="div" />
+    <label for="-">القسمة</label><br />
+
+    <input
+      type="submit"
+      value="submit"
+      onclick="return calc(document.getElementById('fnumber').value, document.getElementById('snumber').value)"
+    />
+    <div>
+      <label id="result"></label>
+      <label>النتيجة</label>
+    </div>
+    <br />
+  </body>
+</html>
